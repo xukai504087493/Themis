@@ -1,0 +1,12 @@
+Themis source code — Terms of Use
+Copyright (c) 2026 Themis project contributors
+
+The Themis source code is free for noncommercial use, and comes with neither
+warranty nor guarantee. The Themis source code cannot be redistributed in any
+form without consent of the authors. If you wish to use the Themis source
+code for commercial purposes, you must first obtain the permission from all
+authors. All noteworthy uses of the Themis source code should cite the
+related paper:
+
+Exact Temporal Shortest Hyperpaths with Cycles for Pathway Inference in
+Cellular Reaction Networks. RECOMB 2027 (in submission).
