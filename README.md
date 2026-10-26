@@ -52,13 +52,15 @@ The code requires Python >= 3.9. Dependencies are declared in
 
 ## Installation Guide
 
-It is recommended to use a virtual environment:
+Clone the repository and install the dependencies (conda is recommended, as
+in the reference implementations):
 
 ```bash
 git clone <repo-url>
 cd Themis
-python -m venv .venv
-.venv/bin/pip install -r requirements.txt
+conda create -n themis_env python=3.9
+conda activate themis_env
+pip install -r requirements.txt
 ```
 
 ## Running the code
@@ -68,10 +70,10 @@ model (Mmunin-style command line):
 
 ```bash
 # solve a bundled representative instance
-.venv/bin/python run.py --name allpid --demo
+python run.py --name allpid --demo
 
 # solve a specific target (any vertex id in the data file)
-.venv/bin/python run.py --name allreactome --target <target-id> --objective time
+python run.py --name allreactome --target <target-id> --objective time
 ```
 
 Parameter definition:
@@ -113,7 +115,7 @@ makespan of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6
 ## Tests
 
 ```bash
-.venv/bin/python -m pytest tests/ -q
+python -m pytest tests/ -q
 ```
 
 `tests/` cover the algorithm core (loading, temporal distance, feasibility,
