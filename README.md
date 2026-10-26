@@ -112,6 +112,20 @@ makespan of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6
   kinetic and reaction tables (not distributed here); see
   `data/preprocess/README.md` for the upstream sources.
 
+## Supplementary Material
+
+The supplementary material accompanying the paper is available as
+`docs/supplementary_material.pdf`:
+
+- **Sect. S1** -- parameterized complexity results of T-SHP.
+- **Sect. S2** -- complete proofs of the main theorems (temporal cut theorem,
+  cycle characterization of temporal feasibility, ILP correctness, and
+  optimality of Themis).
+- **Sect. S3** -- supplementary experiments: delay-model ablation, pathway
+  recovery details, runtime and cutting-plane statistics, exact linear
+  verification, and real-world witnesses of the positive-delay-cycle
+  characterization.
+
 ## License
 
 Released under the [MIT License](https://opensource.org/licenses/MIT). Copyright (c) 2026 The Themis authors.
