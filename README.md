@@ -44,7 +44,7 @@ oracles: temporal-closure cuts and positive-delay-cycle detection.
 
 ## Python Requirements
 
-The code requires Python >= 3.14. Dependencies are declared in
+The code requires Python >= 3.12. Dependencies are declared in
 `requirements.txt`:
 
 - numpy>=1.24
@@ -58,7 +58,7 @@ in the reference implementations):
 ```bash
 git clone <repo-url>
 cd Themis
-conda create -n themis_env python=3.14
+conda create -n themis_env python=3.12
 conda activate themis_env
 pip install -r requirements.txt
 ```
