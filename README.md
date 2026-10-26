@@ -1,9 +1,12 @@
 # Themis: Exact Temporal Shortest Hyperpaths with Cycles
+![License: Noncommercial](https://img.shields.io/badge/License-Noncommercial%20%26%20Cite-blue.svg)
 
 Companion code for the RECOMB 2027 submission *Exact Temporal Shortest
 Hyperpaths with Cycles for Pathway Inference in Cellular Reaction Networks*.
-This package solves the temporal shortest hyperpath problem (T-SHP) on
-biochemical reaction hypergraphs with measured-kinetics delays.
+Themis solves the temporal shortest hyperpath problem (T-SHP) on biochemical
+reaction hypergraphs with measured-kinetics delays, and is the exact engine
+behind all experimental results in the paper (14,401 source-target
+instances, median solve time 3 ms).
 
 ## About
 
@@ -23,11 +26,7 @@ per-reaction delays. Themis introduces the temporal shortest hyperpath
 problem with cycles (T-SHP), in which every reaction carries a positive delay
 derived from measured catalytic rate constants, and solves it to proven
 optimality with an exact cutting-plane algorithm driven by two separation
-oracles: temporal-closure cuts and positive-delay-cycle detection. The
-evaluation covers 14,401 source-target instances from four pathway databases
-(NCI-PID, Reactome, KEGG, HumanCyc) with delays built from 35,147 measured
-kcat values; on these instances, the median solve time is 3 milliseconds and
-the largest observed solve time is 0.14 seconds.
+oracles: temporal-closure cuts and positive-delay-cycle detection.
 
 ## Features
 
@@ -43,9 +42,21 @@ the largest observed solve time is 0.14 seconds.
 - Bundled data: hypergraph exports and delay maps for all four databases are
   vendored, so the package runs out of the box.
 
-## Installation
+## Python Requirements
+
+The code requires Python >= 3.9. Dependencies are declared in
+`requirements.txt`:
+
+- numpy>=1.24
+- scipy>=1.9
+
+## Installation Guide
+
+It is recommended to use a virtual environment:
 
 ```bash
+git clone <repo-url>
+cd Themis
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
@@ -59,19 +70,31 @@ model (Mmunin-style command line):
 # solve a bundled representative instance
 .venv/bin/python run.py --name allpid --demo
 
-# solve a specific target
+# solve a specific target (any vertex id in the data file)
 .venv/bin/python run.py --name allreactome --target <target-id> --objective time
-
-# objectives: time (min makespan, default), len (min edge count, static),
-#             len_d (min total delay among static optima)
-.venv/bin/python run.py --name allkegg --target <target-id> --objective len
 ```
 
-`--name` selects one of `allpid`, `allreactome`, `allkegg`, `allhumancyc`.
-The demo instance is chosen automatically; for `--target`, use any vertex id
-present in the corresponding `data/hypergraphs/<name>-hyperedges.txt` file
-(e.g. Pathway Commons ids such as
-`http://pathwaycommons.org/pc12/Protein_...`).
+Parameter definition:
+
+- `--name`: dataset name, optional: `allpid`, `allreactome`, `allkegg`,
+  `allhumancyc` (default: `allpid`)
+- `--target`: target vertex id, e.g.
+  `http://pathwaycommons.org/pc12/Protein_...`
+- `--objective`: optimization objective, optional: `time` (min makespan,
+  default), `len` (min edge count, static), `len_d` (min total delay among
+  static optima)
+- `--budget`: solver time limit in seconds (default: 300)
+- `--demo`: solve an automatically chosen representative instance
+
+Expected output of the demo run:
+
+```
+demo target: http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6b46;http://pathwaycommons.org/pc12/Protein_c9a6c85d3c93a372636dc4038f485493
+dataset: allpid | vertices: 7393 | edges: 4620 | pred-closure of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6b46;http://pathwaycommons.org/pc12/Protein_c9a6c85d3c93a372636dc4038f485493: 2 edges
+objective: time | status: integer optimal solution | value: 2.0 | elapsed: 0.01s
+selected reactions: 2
+makespan of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6b46;http://pathwaycommons.org/pc12/Protein_c9a6c85d3c93a372636dc4038f485493: 2.0
+```
 
 ## Data
 
@@ -96,16 +119,24 @@ present in the corresponding `data/hypergraphs/<name>-hyperedges.txt` file
 `tests/` cover the algorithm core (loading, temporal distance, feasibility,
 SCC, linear B-hypergraph distance) and require no solver license.
 
-## Citation
+## Cite Us
 
 Noteworthy uses of this code should cite the accompanying paper:
 
-> Exact Temporal Shortest Hyperpaths with Cycles for Pathway Inference in
-> Cellular Reaction Networks. RECOMB 2027 (in submission).
+```bibtex
+@inproceedings{themis2027,
+  title     = {Exact Temporal Shortest Hyperpaths with Cycles for Pathway Inference in Cellular Reaction Networks},
+  author    = {Themis authors},
+  booktitle = {RECOMB},
+  year      = {2027},
+  note      = {in submission; author list to be completed at camera-ready}
+}
+```
 
 ## License
 
 The Themis source code is free for noncommercial use, and comes with neither
 warranty nor guarantee. The source code cannot be redistributed in any form
 without consent of the authors. If you wish to use it for commercial purposes,
-you must first obtain permission from all authors. See `LICENSE`.
+you must first obtain permission from all authors. The full terms are in
+[`LICENSE`](LICENSE).
