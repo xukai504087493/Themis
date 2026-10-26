@@ -1,5 +1,5 @@
 # Themis: Exact Temporal Shortest Hyperpaths with Cycles
-![License: Noncommercial](https://img.shields.io/badge/License-Noncommercial%20%26%20Cite-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Companion code for the RECOMB 2027 submission *Exact Temporal Shortest
 Hyperpaths with Cycles for Pathway Inference in Cellular Reaction Networks*.
@@ -112,24 +112,6 @@ makespan of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6
   kinetic and reaction tables (not distributed here); see
   `data/preprocess/README.md` for the upstream sources.
 
-## Cite Us
-
-Noteworthy uses of this code should cite the accompanying paper:
-
-```bibtex
-@inproceedings{themis2027,
-  title     = {Exact Temporal Shortest Hyperpaths with Cycles for Pathway Inference in Cellular Reaction Networks},
-  author    = {Themis authors},
-  booktitle = {RECOMB},
-  year      = {2027},
-  note      = {in submission; author list to be completed at camera-ready}
-}
-```
-
 ## License
 
-The Themis source code is free for noncommercial use, and comes with neither
-warranty nor guarantee. The source code cannot be redistributed in any form
-without consent of the authors. If you wish to use it for commercial purposes,
-you must first obtain permission from all authors. The full terms are in
-[`LICENSE`](LICENSE).
+Released under the MIT License. See [`LICENSE`](LICENSE) for the full terms.
