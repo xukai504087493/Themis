@@ -56,7 +56,7 @@ Clone the repository and install the dependencies (conda is recommended, as
 in the reference implementations):
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/xukai504087493/Themis.git
 cd Themis
 conda create -n themis_env python=3.12
 conda activate themis_env
