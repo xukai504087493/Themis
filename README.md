@@ -112,15 +112,6 @@ makespan of http://pathwaycommons.org/pc12/Complex_0007a39c9847990d54142810bd3a6
   kinetic and reaction tables (not distributed here); see
   `data/preprocess/README.md` for the upstream sources.
 
-## Tests
-
-```bash
-python -m pytest tests/ -q
-```
-
-`tests/` cover the algorithm core (loading, temporal distance, feasibility,
-SCC, linear B-hypergraph distance) and require no solver license.
-
 ## Cite Us
 
 Noteworthy uses of this code should cite the accompanying paper:
